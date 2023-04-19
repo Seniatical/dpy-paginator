@@ -1,0 +1,751 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>discord.ui.view | DPaginator</title>
+<link href="../../../_static/pygments.css" rel="stylesheet"/>
+<link href="../../../_static/theme.39dcd091ff2d4f33bf46.css" rel="stylesheet"/>
+<link href="../../../search.html" rel="search" title="Search"/>
+<link href="../../../genindex.html" rel="index" title="Index"/>
+</head>
+<body class="antialiased text-gray scroll-smooth">
+<div class="min-h-screen xl:h-screen flex flex-col xl:grid xl:grid-layout print:block print:h-auto" data-action="keydown@window-&gt;search#focus " data-controller="sidebar search " id="page">
+<a class="block transition -translate-x-full focus:translate-x-0 opacity-0 focus:opacity-100 text-xl bg-white p-4 z-20 absolute top-0 left-0 h-14" href="#discord-ui-view" title="Skip navigation links">Skip to content</a>
+<header class="grid-area-header z-10 h-14 fixed w-full top-0 print:hidden">
+<div class="bg-gray-dark shadow-md flex items-center h-full xl:px-2 relative"><div class="flex items-center">
+<button class="xl:hidden h-14 w-14 leading-14 text-gray-100 hover:bg-gray-700 hover:text-brand focus:outline-none focus:bg-gray-700 focus:text-brand" data-action="sidebar#open" data-sidebar-target="hamburger">
+<span class="sr-only">Open navigation menu</span>
+<svg aria-hidden="true" class="fill-current h-8 w-8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+</button><a class="hover:bg-gray-700 focus:bg-gray-700 focus:outline-none" href="../../../index.html" title="Back to homepage"><span class="hidden lg:inline-block shrink-0 font-medium text-gray-100 mx-5 leading-14 tracking-wider">DPaginator</span>
+</a></div><div class="flex justify-end items-center flex-1"><form action="../../../search.html" class="flex print:hidden justify-between items-center leading-14 md:ml-4 bg-gray-dark text-gray-300 focus-within:bg-gray-50 focus-within:text-gray-800 focus-within:absolute focus-within:inset-x-0 focus-within:top-0 md:focus-within:w-full md:focus-within:static z-10" data-action="click-&gt;search#focusSearchInput" id="searchbox" method="get">
+<button aria-label="Get search results" class="text-inherit h-14 w-14" tabindex="-1">
+<svg aria-hidden="true" class="fill-current stroke-current h-8 w-8" stroke-width="0.5" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+</button>
+<input aria-label="Search the docs" class="pr-2 bg-transparent text-inherit focus:outline-none w-0 md:w-auto focus:w-full transition-all duration-100" data-search-target="searchInput" id="search-input" name="q" placeholder="Search the docs" type="search"/>
+</form><div class="shrink-0">
+<a aria-label="Visit repository on GitHub" class="tooltipped tooltipped-sw h-14 inline-block text-gray-100 leading-14 hover:text-brand focus:bg-gray-700 focus:outline-none hover:no-underline focus:text-brand pl-2 pr-4 sm:px-4" href="https://github.com/Seniatical/EzyCore"><svg fill="currentColor" style="height: 26px; margin-top: -2px;" viewbox="0 0 45 44" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M22.477.927C10.485.927.76 10.65.76 22.647c0 9.596 6.223 17.736 14.853 20.608 1.087.2 1.483-.47 1.483-1.047 0-.516-.019-1.881-.03-3.693-6.04 1.312-7.315-2.912-7.315-2.912-.988-2.51-2.412-3.178-2.412-3.178-1.972-1.346.149-1.32.149-1.32 2.18.154 3.327 2.24 3.327 2.24 1.937 3.318 5.084 2.36 6.321 1.803.197-1.403.759-2.36 1.379-2.903-4.823-.548-9.894-2.412-9.894-10.734 0-2.37.847-4.31 2.236-5.828-.224-.55-.969-2.759.214-5.748 0 0 1.822-.584 5.972 2.226 1.732-.482 3.59-.722 5.437-.732 1.845.01 3.703.25 5.437.732 4.147-2.81 5.967-2.226 5.967-2.226 1.185 2.99.44 5.198.217 5.748 1.392 1.517 2.232 3.457 2.232 5.828 0 8.344-5.078 10.18-9.916 10.717.779.67 1.474 1.996 1.474 4.021 0 2.904-.027 5.247-.027 5.96 0 .58.392 1.256 1.493 1.044C37.981 40.375 44.2 32.24 44.2 22.647c0-11.996-9.726-21.72-21.722-21.72" fill="currentColor" fill-rule="evenodd"></path></svg></a>
+</div></div>
+</div>
+</header>
+<aside class="grid-area-sidebar h-full fixed pt-14 xl:relative inset-y-0 left-0 z-20 xl:z-0 print:hidden overflow-y-auto transition-all transform transform-gpu -translate-x-full opacity-0 duration-300 xl:translate-x-0 xl:opacity-100" data-sidebar-target="sidebar">
+<nav class="h-full overflow-y-auto bg-white text-gray-600 pt-8 flex flex-col" role="navigation">
+<div class="nav-toc flex-1 pl-6"><p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html">Module Reference</a></div><ul>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#paginators">Paginators</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#paginator">Paginator</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#buttonpaginator">ButtonPaginator</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#dropdownpaginator">DropdownPaginator</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#views">Views</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#paginatorview">PaginatorView</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#defaultview">DefaultView</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#buttonpaginatorview">ButtonPaginatorView</a></div></li>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#dropdownpaginatorview">DropdownPaginatorView</a></div></li>
+</ul>
+</li>
+<li class="toctree-l2"><div class="nav-link"><svg class="expand" data-action="click-&gt;sidebar#expand keydown-&gt;sidebar#expandKeyPressed" tabindex="0" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#others">Others</a></div><ul>
+<li class="toctree-l3"><div class="nav-link"><a class="reference internal" data-action="click-&gt;sidebar#close" href="../../../ref.html#genplaceholder">GenPlaceholder</a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<button class="text-4xl text-gray-800 p-4 bottom-0 hover:text-brand xl:hidden focus:text-brand self-center" data-action="sidebar#close" title="Close navigation menu">
+<span class="sr-only">Close navigation menu</span>
+<svg aria-hidden="true" class="fill-current stroke-current h-6 w-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</aside>
+<main class="px-4 pt-14 xl:ml-fluid grid-area-main overflow-y-auto flex flex-col flex-1 h-full mx-0 md:mx-auto xl:mr-0"><nav aria-label="breadcrumbs" class="print:hidden mt-12 text-sm text-gray-light" role="navigation">
+<a class="text-gray-light text-sm hover:text-gray-dark font-medium focus:text-gray-dark" href="../../../index.html">DPaginator</a>
+<span class="mr-1">/</span><a class="text-gray-light text-sm hover:text-gray-dark" href="../../index.html">Module code</a>
+<span class="mr-1">/</span><span aria-current="page">discord.ui.view</span>
+</nav>
+<article class="flex-1" role="main">
+<h1>Source code for discord.ui.view</h1><div class="highlight"><pre>
+<code><span class="sd">"""</span>
+<span class="sd">The MIT License (MIT)</span>
+
+<span class="sd">Copyright (c) 2015-present Rapptz</span>
+
+<span class="sd">Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="sd">copy of this software and associated documentation files (the "Software"),</span>
+<span class="sd">to deal in the Software without restriction, including without limitation</span>
+<span class="sd">the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="sd">and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="sd">Software is furnished to do so, subject to the following conditions:</span>
+
+<span class="sd">The above copyright notice and this permission notice shall be included in</span>
+<span class="sd">all copies or substantial portions of the Software.</span>
+
+<span class="sd">THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS</span>
+<span class="sd">OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="sd">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="sd">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="sd">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="sd">FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="sd">DEALINGS IN THE SOFTWARE.</span>
+<span class="sd">"""</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">ClassVar</span><span class="p">,</span> <span class="n">Coroutine</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
+
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">.item</span> <span class="kn">import</span> <span class="n">Item</span><span class="p">,</span> <span class="n">ItemCallbackType</span>
+<span class="kn">from</span> <span class="nn">..components</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Component</span><span class="p">,</span>
+    <span class="n">ActionRow</span> <span class="k">as</span> <span class="n">ActionRowComponent</span><span class="p">,</span>
+    <span class="n">_component_factory</span><span class="p">,</span>
+    <span class="n">Button</span> <span class="k">as</span> <span class="n">ButtonComponent</span><span class="p">,</span>
+    <span class="n">SelectMenu</span> <span class="k">as</span> <span class="n">SelectComponent</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># fmt: off</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">'View'</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="c1"># fmt: on</span>
+
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Self</span>
+
+    <span class="kn">from</span> <span class="nn">..interactions</span> <span class="kn">import</span> <span class="n">Interaction</span>
+    <span class="kn">from</span> <span class="nn">..message</span> <span class="kn">import</span> <span class="n">Message</span>
+    <span class="kn">from</span> <span class="nn">..types.components</span> <span class="kn">import</span> <span class="n">Component</span> <span class="k">as</span> <span class="n">ComponentPayload</span>
+    <span class="kn">from</span> <span class="nn">..types.interactions</span> <span class="kn">import</span> <span class="n">ModalSubmitComponentInteractionData</span> <span class="k">as</span> <span class="n">ModalSubmitComponentInteractionDataPayload</span>
+    <span class="kn">from</span> <span class="nn">..state</span> <span class="kn">import</span> <span class="n">ConnectionState</span>
+    <span class="kn">from</span> <span class="nn">.modal</span> <span class="kn">import</span> <span class="n">Modal</span>
+
+
+<span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_walk_all_components</span><span class="p">(</span><span class="n">components</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Component</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Component</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">components</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">ActionRowComponent</span><span class="p">):</span>
+            <span class="k">yield from</span> <span class="n">item</span><span class="o">.</span><span class="n">children</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">item</span>
+
+
+<span class="k">def</span> <span class="nf">_component_to_item</span><span class="p">(</span><span class="n">component</span><span class="p">:</span> <span class="n">Component</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Item</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">ButtonComponent</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.button</span> <span class="kn">import</span> <span class="n">Button</span>
+
+        <span class="k">return</span> <span class="n">Button</span><span class="o">.</span><span class="n">from_component</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">SelectComponent</span><span class="p">):</span>
+        <span class="kn">from</span> <span class="nn">.select</span> <span class="kn">import</span> <span class="n">Select</span>
+
+        <span class="k">return</span> <span class="n">Select</span><span class="o">.</span><span class="n">from_component</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Item</span><span class="o">.</span><span class="n">from_component</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_ViewWeights</span><span class="p">:</span>
+    <span class="c1"># fmt: off</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s1">'weights'</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># fmt: on</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">children</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">]):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">row</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">i</span><span class="o">.</span><span class="n">row</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">children</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">children</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">find_open_space</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">weight</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">weight</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">index</span>
+
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'could not find open space for item'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">row</span><span class="p">]</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">width</span>
+            <span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'item would not fit at row </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="n">row</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1"> &gt; 5 width)'</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">_rendered_row</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">row</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_open_space</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">width</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">_rendered_row</span> <span class="o">=</span> <span class="n">index</span>
+
+    <span class="k">def</span> <span class="nf">remove_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">_rendered_row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">_rendered_row</span><span class="p">]</span> <span class="o">-=</span> <span class="n">item</span><span class="o">.</span><span class="n">width</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">_rendered_row</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">_ViewCallback</span><span class="p">:</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'view'</span><span class="p">,</span> <span class="s1">'callback'</span><span class="p">,</span> <span class="s1">'item'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">ItemCallbackType</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">view</span><span class="p">:</span> <span class="n">View</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">[</span><span class="n">View</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">:</span> <span class="n">ItemCallbackType</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">callback</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">:</span> <span class="n">View</span> <span class="o">=</span> <span class="n">view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">[</span><span class="n">View</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Coroutine</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="n">interaction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">View</span><span class="p">:</span>
+    <span class="sd">"""Represents a UI view.</span>
+
+<span class="sd">    This object must be inherited to create a UI within Discord.</span>
+
+<span class="sd">    .. versionadded:: 2.0</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    -----------</span>
+<span class="sd">    timeout: Optional[:class:`float`]</span>
+<span class="sd">        Timeout in seconds from last interaction with the UI before no longer accepting input.</span>
+<span class="sd">        If ``None`` then there is no timeout.</span>
+<span class="sd">    """</span>
+
+    <span class="n">__discord_ui_view__</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">__discord_ui_modal__</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">__view_children_items__</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ItemCallbackType</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">__init_subclass__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init_subclass__</span><span class="p">()</span>
+
+        <span class="n">children</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ItemCallbackType</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__mro__</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">base</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="s1">'__discord_ui_model_type__'</span><span class="p">):</span>
+                    <span class="n">children</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">member</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'View cannot have more than 25 children'</span><span class="p">)</span>
+
+        <span class="bp">cls</span><span class="o">.</span><span class="n">__view_children_items__</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">children</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">_init_children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">[</span><span class="n">Self</span><span class="p">]]:</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">func</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__view_children_items__</span><span class="p">:</span>
+            <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">func</span><span class="o">.</span><span class="n">__discord_ui_model_type__</span><span class="p">(</span><span class="o">**</span><span class="n">func</span><span class="o">.</span><span class="n">__discord_ui_model_kwargs__</span><span class="p">)</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">callback</span> <span class="o">=</span> <span class="n">_ViewCallback</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="bp">self</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+            <span class="n">children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">children</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">180.0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">[</span><span class="n">Self</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_children</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weights</span> <span class="o">=</span> <span class="n">_ViewWeights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cache_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">View</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">asyncio</span><span class="o">.</span><span class="n">Task</span><span class="p">[</span><span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">'&lt;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> timeout=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="si">}</span><span class="s1"> children=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">)</span><span class="si">}</span><span class="s1">&gt;'</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">__timeout_task_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># Guard just in case someone changes the value of the timeout at runtime</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_timeout</span><span class="p">()</span>
+
+            <span class="c1"># Check if we've elapsed our currently set timeout</span>
+            <span class="n">now</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">now</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatch_timeout</span><span class="p">()</span>
+
+            <span class="c1"># Wait N seconds to see if timeout data has been refreshed</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">-</span> <span class="n">now</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_components</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+        <span class="k">def</span> <span class="nf">key</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">_rendered_row</span> <span class="ow">or</span> <span class="mi">0</span>
+
+        <span class="n">children</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">components</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">groupby</span><span class="p">(</span><span class="n">children</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">key</span><span class="p">):</span>
+            <span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">to_component_dict</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">group</span><span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">children</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="s1">'type'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s1">'components'</span><span class="p">:</span> <span class="n">children</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">components</span>
+
+    <span class="k">def</span> <span class="nf">_refresh_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="sd">"""Optional[:class:`float`]: The timeout in seconds from last interaction with the UI before no longer accepting input.</span>
+<span class="sd">        If ``None`` then there is no timeout.</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout</span>
+
+    <span class="nd">@timeout</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># If the timeout task is already running this allows it to update</span>
+        <span class="c1"># the expiry while it's running</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__timeout</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">children</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">[</span><span class="n">Self</span><span class="p">]]:</span>
+        <span class="sd">"""List[:class:`Item`]: The list of children attached to this view."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_message</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="mf">180.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">View</span><span class="p">:</span>
+        <span class="sd">"""Converts a message's components into a :class:`View`.</span>
+
+<span class="sd">        The :attr:`.Message.components` of a message are read-only</span>
+<span class="sd">        and separate types from those in the ``discord.ui`` namespace.</span>
+<span class="sd">        In order to modify and edit message components they must be</span>
+<span class="sd">        converted into a :class:`View` first.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        message: :class:`discord.Message`</span>
+<span class="sd">            The message with components to convert into a view.</span>
+<span class="sd">        timeout: Optional[:class:`float`]</span>
+<span class="sd">            The timeout of the converted view.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        --------</span>
+<span class="sd">        :class:`View`</span>
+<span class="sd">            The converted view. This always returns a :class:`View` and not</span>
+<span class="sd">            one of its subclasses.</span>
+<span class="sd">        """</span>
+        <span class="n">view</span> <span class="o">=</span> <span class="n">View</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">message</span><span class="o">.</span><span class="n">components</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="n">ActionRowComponent</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">component</span><span class="o">.</span><span class="n">children</span><span class="p">:</span>
+                    <span class="n">item</span> <span class="o">=</span> <span class="n">_component_to_item</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+                    <span class="n">item</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+                    <span class="n">view</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="n">row</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">_component_to_item</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+                <span class="n">item</span><span class="o">.</span><span class="n">row</span> <span class="o">=</span> <span class="n">row</span>
+                <span class="n">view</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">view</span>
+
+    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="sd">"""Adds an item to the view.</span>
+
+<span class="sd">        This function returns the class instance to allow for fluent-style</span>
+<span class="sd">        chaining.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        item: :class:`Item`</span>
+<span class="sd">            The item to add to the view.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        --------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            An :class:`Item` was not passed.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            Maximum number of children has been exceeded (25)</span>
+<span class="sd">            or the row the item is trying to be added to is full.</span>
+<span class="sd">        """</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">25</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'maximum number of children exceeded'</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Item</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'expected Item not </span><span class="si">{</span><span class="n">item</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weights</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="n">item</span><span class="o">.</span><span class="n">_view</span> <span class="o">=</span> <span class="bp">self</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">remove_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="sd">"""Removes an item from the view.</span>
+
+<span class="sd">        This function returns the class instance to allow for fluent-style</span>
+<span class="sd">        chaining.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        item: :class:`Item`</span>
+<span class="sd">            The item to remove from the view.</span>
+<span class="sd">        """</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__weights</span><span class="o">.</span><span class="n">remove_item</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">clear_items</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Self</span><span class="p">:</span>
+        <span class="sd">"""Removes all items from the view.</span>
+
+<span class="sd">        This function returns the class instance to allow for fluent-style</span>
+<span class="sd">        chaining.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__weights</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">interaction_check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">"""|coro|</span>
+
+<span class="sd">        A callback that is called when an interaction happens within the view</span>
+<span class="sd">        that checks whether the view should process item callbacks for the interaction.</span>
+
+<span class="sd">        This is useful to override if, for example, you want to ensure that the</span>
+<span class="sd">        interaction author is a given user.</span>
+
+<span class="sd">        The default implementation of this returns ``True``.</span>
+
+<span class="sd">        .. note::</span>
+
+<span class="sd">            If an exception occurs within the body then the check</span>
+<span class="sd">            is considered a failure and :meth:`on_error` is called.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        interaction: :class:`~discord.Interaction`</span>
+<span class="sd">            The interaction that occurred.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ---------</span>
+<span class="sd">        :class:`bool`</span>
+<span class="sd">            Whether the view children's callbacks should be called.</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""|coro|</span>
+
+<span class="sd">        A callback that is called when a view's timeout elapses without being explicitly stopped.</span>
+<span class="sd">        """</span>
+        <span class="k">pass</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">on_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""|coro|</span>
+
+<span class="sd">        A callback that is called when an item's callback or :meth:`interaction_check`</span>
+<span class="sd">        fails with an error.</span>
+
+<span class="sd">        The default implementation logs to the library logger.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        -----------</span>
+<span class="sd">        interaction: :class:`~discord.Interaction`</span>
+<span class="sd">            The interaction that led to the failure.</span>
+<span class="sd">        error: :class:`Exception`</span>
+<span class="sd">            The exception that was raised.</span>
+<span class="sd">        item: :class:`Item`</span>
+<span class="sd">            The item that failed the dispatch.</span>
+<span class="sd">        """</span>
+        <span class="n">_log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">'Ignoring exception in view </span><span class="si">%r</span><span class="s1"> for item </span><span class="si">%r</span><span class="s1">'</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">_scheduled_task</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">_refresh_state</span><span class="p">(</span><span class="n">interaction</span><span class="p">,</span> <span class="n">interaction</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+            <span class="n">allow</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">interaction_check</span><span class="p">(</span><span class="n">interaction</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">allow</span><span class="p">:</span>
+                <span class="k">return</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+
+            <span class="k">await</span> <span class="n">item</span><span class="o">.</span><span class="n">callback</span><span class="p">(</span><span class="n">interaction</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span><span class="p">(</span><span class="n">interaction</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_start_listening_from_store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">store</span><span class="p">:</span> <span class="n">ViewStore</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">store</span><span class="o">.</span><span class="n">remove_view</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task_impl</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">_dispatch_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">on_timeout</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">'discord-ui-view-timeout-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_dispatch_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+            <span class="k">return</span>
+
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_scheduled_task</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">interaction</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">'discord-ui-view-dispatch-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">components</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Component</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># fmt: off</span>
+        <span class="n">old_state</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Item</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">custom_id</span><span class="p">:</span> <span class="n">item</span>  <span class="c1"># type: ignore</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dispatchable</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="c1"># fmt: on</span>
+
+        <span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">_walk_all_components</span><span class="p">(</span><span class="n">components</span><span class="p">):</span>
+            <span class="n">custom_id</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">component</span><span class="p">,</span> <span class="s1">'custom_id'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">custom_id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">older</span> <span class="o">=</span> <span class="n">old_state</span><span class="p">[</span><span class="n">custom_id</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'View interaction referenced an unknown item custom_id </span><span class="si">%s</span><span class="s1">. Discarding'</span><span class="p">,</span> <span class="n">custom_id</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">older</span><span class="o">.</span><span class="n">_refresh_component</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">"""Stops listening to interaction events from this view.</span>
+
+<span class="sd">        This operation cannot be undone.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_expiry</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__timeout_task</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">is_finished</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">""":class:`bool`: Whether the view has finished interacting."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span><span class="o">.</span><span class="n">done</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">is_dispatching</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">""":class:`bool`: Whether the view has been added for dispatching purposes."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__cancel_callback</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">is_persistent</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">""":class:`bool`: Whether the view is set up as persistent.</span>
+
+<span class="sd">        A persistent view has all their components with a set ``custom_id`` and</span>
+<span class="sd">        a :attr:`timeout` set to ``None``.</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">is_persistent</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_children</span><span class="p">)</span>
+
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">"""|coro|</span>
+
+<span class="sd">        Waits until the view has finished interacting.</span>
+
+<span class="sd">        A view is considered finished when :meth:`stop` is called</span>
+<span class="sd">        or it times out.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        --------</span>
+<span class="sd">        :class:`bool`</span>
+<span class="sd">            If ``True``, then the view timed out. If ``False`` then</span>
+<span class="sd">            the view finished normally.</span>
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">__stopped</span>
+
+
+<span class="k">class</span> <span class="nc">ViewStore</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">ConnectionState</span><span class="p">):</span>
+        <span class="c1"># entity_id: {(component_type, custom_id): Item}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">Item</span><span class="p">[</span><span class="n">View</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># message_id: View</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">View</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># custom_id: Modal</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_modals</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Modal</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">:</span> <span class="n">ConnectionState</span> <span class="o">=</span> <span class="n">state</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">persistent_views</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">View</span><span class="p">]:</span>
+        <span class="c1"># fmt: off</span>
+        <span class="n">views</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">item</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">item</span><span class="o">.</span><span class="n">view</span>
+            <span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">view</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">is_persistent</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="c1"># fmt: on</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">views</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">add_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">view</span><span class="p">:</span> <span class="n">View</span><span class="p">,</span> <span class="n">message_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">view</span><span class="o">.</span><span class="n">_start_listening_from_store</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">view</span><span class="o">.</span><span class="n">__discord_ui_modal__</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_modals</span><span class="p">[</span><span class="n">view</span><span class="o">.</span><span class="n">custom_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">view</span>  <span class="c1"># type: ignore</span>
+            <span class="k">return</span>
+
+        <span class="n">dispatch_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">message_id</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">view</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dispatchable</span><span class="p">():</span>
+                <span class="n">dispatch_info</span><span class="p">[(</span><span class="n">item</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">custom_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">item</span>  <span class="c1"># type: ignore</span>
+
+        <span class="n">view</span><span class="o">.</span><span class="n">_cache_key</span> <span class="o">=</span> <span class="n">message_id</span>
+        <span class="k">if</span> <span class="n">message_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span><span class="p">[</span><span class="n">message_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">view</span>
+
+    <span class="k">def</span> <span class="nf">remove_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">view</span><span class="p">:</span> <span class="n">View</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">view</span><span class="o">.</span><span class="n">__discord_ui_modal__</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_modals</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">custom_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="k">return</span>
+
+        <span class="n">dispatch_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">_cache_key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dispatch_info</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">view</span><span class="o">.</span><span class="n">_children</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">is_dispatchable</span><span class="p">():</span>
+                    <span class="n">dispatch_info</span><span class="o">.</span><span class="n">pop</span><span class="p">((</span><span class="n">item</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">item</span><span class="o">.</span><span class="n">custom_id</span><span class="p">),</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dispatch_info</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">_cache_key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">_cache_key</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">def</span> <span class="nf">dispatch_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">component_type</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">custom_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">interaction_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">message_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="c1"># Realistically, in a component based interaction the Interaction.message will never be None</span>
+        <span class="c1"># However, this guard is just in case Discord screws up somehow</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="n">interaction</span><span class="o">.</span><span class="n">message</span>
+        <span class="k">if</span> <span class="n">msg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">message_id</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">id</span>
+            <span class="k">if</span> <span class="n">msg</span><span class="o">.</span><span class="n">interaction</span><span class="p">:</span>
+                <span class="n">interaction_id</span> <span class="o">=</span> <span class="n">msg</span><span class="o">.</span><span class="n">interaction</span><span class="o">.</span><span class="n">id</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">component_type</span><span class="p">,</span> <span class="n">custom_id</span><span class="p">)</span>
+
+        <span class="c1"># The entity_id can either be message_id, interaction_id, or None in that priority order.</span>
+        <span class="n">item</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Item</span><span class="p">[</span><span class="n">View</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">message_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message_id</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">interaction_id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">items</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">interaction_id</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="c1"># If we actually got the items, then these keys should probably be moved</span>
+                <span class="c1"># to the proper message_id instead of the interaction_id as they are now.</span>
+                <span class="c1"># An interaction_id is only used as a temporary stop gap for</span>
+                <span class="c1"># InteractionResponse.send_message so multiple view instances do not</span>
+                <span class="c1"># override each other.</span>
+                <span class="c1"># NOTE: Fix this mess if /callback endpoint ever gets proper return types</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">message_id</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># Fallback to None message_id searches in case a persistent view</span>
+            <span class="c1"># was added without an associated message_id</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+        <span class="c1"># If 3 lookups failed at this point then just discard it</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Note, at this point the View is *not* None</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">_dispatch_item</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">interaction</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">def</span> <span class="nf">dispatch_modal</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">custom_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">interaction</span><span class="p">:</span> <span class="n">Interaction</span><span class="p">,</span>
+        <span class="n">components</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ModalSubmitComponentInteractionDataPayload</span><span class="p">],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">modal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">custom_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">modal</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Modal interaction referencing unknown custom_id </span><span class="si">%s</span><span class="s2">. Discarding"</span><span class="p">,</span> <span class="n">custom_id</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="n">modal</span><span class="o">.</span><span class="n">_dispatch_submit</span><span class="p">(</span><span class="n">interaction</span><span class="p">,</span> <span class="n">components</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">remove_interaction_mapping</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interaction_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># This is called before re-adding the view</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_views</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">interaction_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">interaction_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">is_message_tracked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">message_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span>
+
+    <span class="k">def</span> <span class="nf">remove_message_tracking</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">View</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">message_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_from_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ComponentPayload</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">components</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Component</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">component_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+            <span class="n">component</span> <span class="o">=</span> <span class="n">_component_factory</span><span class="p">(</span><span class="n">component_data</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">component</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">components</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">component</span><span class="p">)</span>
+
+        <span class="c1"># pre-req: is_message_tracked == true</span>
+        <span class="n">view</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_synced_message_views</span><span class="p">[</span><span class="n">message_id</span><span class="p">]</span>
+        <span class="n">view</span><span class="o">.</span><span class="n">_refresh</span><span class="p">(</span><span class="n">components</span><span class="p">)</span>
+</code></pre></div>
+</article><section class="flex justify-between pt-4 mt-12">
+</section>
+<footer>
+<div class="mt-20 mb-4 text-sm text-gray-700 print:mt-4">© 2023, Seniatical Last updated: 19/04/2023. Made with <a href="https://www.sphinx-doc.org">Sphinx 4.1.2</a></div>
+</footer></main>
+<button class="fixed bottom-0 right-0 z-20 opacity-0 p-4 m-4 tracking-wide bg-gray-900 text-gray-100 transition transform transform-gpu duration-500 translate-y-full" data-action="search#hideSnackbar" data-search-target="snackbar">
+  Clear highlights
+</button><div class="fixed hidden inset-0 bg-black bg-opacity-50" data-action="click-&gt;sidebar#close" data-sidebar-target="screen">
+</div>
+</div>
+<script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+<script src="../../../_static/jquery.js"></script>
+<script src="../../../_static/underscore.js"></script>
+<script src="../../../_static/doctools.js"></script>
+<script src="../../../_static/theme.b62e1ded0c8c099a2d47.js"></script>
+</body>
+</html>
