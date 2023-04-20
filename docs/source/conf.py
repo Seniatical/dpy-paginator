@@ -63,7 +63,7 @@ html_theme_options = {
     "show_prev_next": True,
     "extra_header_links": {
         "repository on GitHub": {
-            "link": "https://github.com/Seniatical/EzyCore",
+            "link": "https://github.com/Seniatical/dpy-paginator",
             "icon": (
                 '<svg style="height: 26px; margin-top: -2px;" viewBox="0 0 45 44" '
                 'fill="currentColor" xmlns="http://www.w3.org/2000/svg">'
