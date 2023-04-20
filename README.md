@@ -2,6 +2,15 @@
 A pagination library for discord.py,
 comes with support for dropdown, button based pagination
 
+<p>
+    <a href='https://seniatical.github.io/dpy-paginator/'>Documentation</a>
+</p>
+
+## Installation
+```py
+pip install git+https://github.com/Seniatical/dpy-paginator/
+```
+
 ## Button Pagination
 ```py
 from discord.ext.paginator import ButtonPaginator
